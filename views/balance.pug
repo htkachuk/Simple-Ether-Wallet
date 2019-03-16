@@ -1,0 +1,18 @@
+extends layout
+
+block content
+      header#fh5co-header.fh5co-cover(role='banner', style='background-image:url(images/img_bg_2.jpg);')
+        .overlay
+        .container
+          .row
+            .col-md-10.col-md-offset-1.text-center
+              .display-t
+                .display-tc.animate-box(data-animate-effect='fadeIn')
+                  h2 Balance of #{address} = #{balance}
+                  h1 Get info about other addr:
+                  .row
+                    form#fh5co-header-subscribe.form-inline(method='post', action='http://localhost:3000/balance')
+                      .col-md-6.col-md-offset-3
+                        .form-group
+                          input#email.form-control(type='text', name='key', placeholder='Enter your address')
+                          button.btn.btn-default(type='submit')  GetBalance 

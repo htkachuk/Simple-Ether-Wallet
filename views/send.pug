@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  header#fh5co-header.fh5co-cover(role='banner', style='background-image:url(images/img_bg_2.jpg);')
+    .overlay
+      .container
+        .row
+          .col-md-10.col-md-offset-1.text-center
+            .display-t
+              .display-tc.animate-box(data-animate-effect='fadeIn')
+                h1 Check if is your account and you have sufficient money
+                .row
+                  form#fh5co-header-login(method='post', action='http://localhost:3000/send')
+                    .col-md-6.col-md-offset-3
+                      .form-group
+                        input#login.form-control(type='text', name='to', placeholder='To: ')
+                        input#password.form-control(type='text', name='val', placeholder='How much:' )
+                        button.btn(type='submit')  Send
+                        

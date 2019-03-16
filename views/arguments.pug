@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  script.
+    const key ='#{account}'
+    const password = '#{password}'
+    let retrievedObject = localStorage.getItem('#{account}');
+    let data = JSON.parse(retrievedObject);
+    let storage_password = data.password
+    const privateKey = data.privateKey
+    const address = data.address
+
+    if (storage_password != #{password}) {
+      window.location.replace("/invalidPassword");
+      }
+    else
+      jQuery.post( "/loadWallet",
+      {
+        account: key,
+        password: password,
+        privateKey: privateKey,
+        address: address
+      },
+      function(response) {
+        window.location.replace("/currentWallet");
+        })
+          
